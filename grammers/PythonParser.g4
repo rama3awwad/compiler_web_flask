@@ -64,7 +64,7 @@ paramList
 suite
     : simpleStatement NEWLINE             #SingleLineSuite
     | NEWLINE INDENT statement+ DEDENT   #IndentedSuite
-    | NEWLINE simpleStatement NEWLINE    #SingleStmtSuite
+     | NEWLINE simpleStatement NEWLINE    #SingleStmtSuite
     ;
 
 /* =========================
@@ -151,21 +151,39 @@ dictAccess
 /* =========================
    Collections
 ========================= */
+/*listExpression
+    : LBRACK (elementList (COMMA? | NEWLINE+))? RBRACK #ListLiteralExpr
+    ;*/
+
 listExpression
-    : LBRACK elementList? RBRACK          #ListLiteralExpr
+    : LBRACK NEWLINE* elementList? NEWLINE* RBRACK
+      #ListLiteralExpr
     ;
+
+/*elementList
+    : expression ( (COMMA | NEWLINE+) expression )*
+    ;*/
 
 elementList
-    : expression (COMMA expression)*      #ElementListExpr
+        : expression ( (COMMA | NEWLINE)+ expression )*
+        ;
+
+
+/*dictExpression
+    : LBRACE (keyValuePair (COMMA? | NEWLINE+))* RBRACE #DictLiteralExpr
+    ;*/
+
+    dictExpression
+        : LBRACE NEWLINE* keyValuePairList? NEWLINE* RBRACE
+          #DictLiteralExpr
+        ;
+keyValuePairList
+    : keyValuePair ( (COMMA | NEWLINE)+ keyValuePair )*
     ;
 
-dictExpression
-    : LBRACE keyValuePair (COMMA keyValuePair)* RBRACE
-                                         #DictLiteralExpr
-    ;
 
 keyValuePair
-    : STRING COLON expression             #KeyValuePairExpr
+    : STRING COLON expression
     ;
 
 /* =========================
