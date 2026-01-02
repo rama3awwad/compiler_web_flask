@@ -118,7 +118,7 @@ ID
 
 /* ===================== NEWLINE + INDENT ===================== */
 
-NEWLINE
+/*NEWLINE
   : ( '\r'? '\n' | '\r' | '\f' ) [ \t]*
     {
       String text = getText();
@@ -145,8 +145,40 @@ NEWLINE
         }
       }
     }
-  ;
+  ;*/
 
+
+NEWLINE
+  : ( '\r'? '\n' | '\r' | '\f' ) [ \t]*
+    {
+      String text = getText();
+      String newLine = text.replaceAll("[^\\r\\n\\f]+", "");
+      String spaces = text.replaceAll("[\\r\\n\\f]+", "");
+
+      // إذا كنا داخل أي نوع من الأقواس → نخفي الـ NEWLINE تمامًا (لا نصدر أي شيء)
+      if (opened > 0) {
+        skip();
+      } else {
+        // خارج الأقواس فقط → نصدر NEWLINE ونعالج الـ indentation
+        emit(commonToken(NEWLINE, newLine));
+
+        int indent = getIndentationCount(spaces);
+        int previous = indents.isEmpty() ? 0 : indents.peek();
+
+        if (indent == previous) {
+          // نفس المستوى → لا INDENT ولا DEDENT إضافي
+        } else if (indent > previous) {
+          indents.push(indent);
+          emit(commonToken(INDENT, spaces));
+        } else {
+          while (!indents.isEmpty() && indents.peek() > indent) {
+            emit(commonToken(DEDENT, ""));
+            indents.pop();
+          }
+        }
+      }
+    }
+  ;
 /* ===================== SKIPPED ===================== */
 
 WS

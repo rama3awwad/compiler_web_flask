@@ -165,7 +165,7 @@ listExpression
     ;*/
 
 elementList
-        : expression ( (COMMA | NEWLINE)+ expression )*
+        : expression ( (COMMA | NEWLINE)+ expression )*      #ElementListSequence
         ;
 
 
@@ -178,12 +178,12 @@ elementList
           #DictLiteralExpr
         ;
 keyValuePairList
-    : keyValuePair ( (COMMA | NEWLINE)+ keyValuePair )*
+    : keyValuePair ( (COMMA | NEWLINE)+ keyValuePair )*     #KeyValuePairListSeq
     ;
 
 
 keyValuePair
-    : STRING COLON expression
+    : STRING COLON expression           #KeyValuePairEntry
     ;
 
 /* =========================

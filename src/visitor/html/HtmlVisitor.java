@@ -4,7 +4,6 @@ package visitor.html;
 import antlr.JinjaParser;
 import antlr.JinjaParserBaseVisitor;
 import astHtml.*;
-import org.antlr.v4.runtime.tree.ParseTree;
 
 public class HtmlVisitor extends JinjaParserBaseVisitor<AstNode> {
 
