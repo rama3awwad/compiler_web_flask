@@ -1,0 +1,66 @@
+package src;
+
+import org.antlr.v4.runtime.*;
+import antlr.PythonLexer;
+import antlr.PythonParser;
+import astPython.*;
+import visitor.python.PythonVisitor;
+
+
+public class PythonMain {
+    public static void main(String[] args) throws Exception {
+
+        String pythonCode = """
+            from flask import Flask, render_template, redirect
+
+            app = Flask(__name__)
+
+            dummy_products = [
+                {"id":"p1","name":"Phone X","price":299,"image":"data:image/jpeg;base64,...","description":"Nice phone"},
+                {"id":"p2","name":"Laptop Z","price":1200,"image":"data:image/jpeg;base64,...","description":"Fast laptop"},
+                {"id":"p3","name":"Headphones","price":59,"image":"data:image/jpeg;base64,...","description":"Comfortable headphones"}]
+
+            @app.route("/")
+            def home():
+                return redirect("/add")
+
+            @app.route("/add")
+            def add():
+                message = "Fill the product information below"
+                return render_template("add_product.html", message=message)
+
+            @app.route("/view")
+            def view():
+                return render_template("view_product.html", products=dummy_products)
+
+            @app.route("/details/<id>")
+            def details(id):
+                product = next((p for p in dummy_products if p['id']==id), None)
+                return render_template("details_product.html", product=product)
+
+            if __name__ == "__main__":
+                app.run(debug=True)
+            """;
+
+        // تحويل الكود إلى Input Stream
+        CharStream input = CharStreams.fromString(pythonCode);
+
+        // Lexer
+        PythonLexer lexer = new PythonLexer(input);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        // Parser
+        PythonParser parser = new PythonParser(tokens);
+
+        // البداية من القاعدة الرئيسية (program)
+        PythonParser.ProgramBlockContext parseTreeRoot = parser.program();
+
+        // Visitor لبناء AST
+        PythonVisitor visitor = new PythonVisitor();
+        AstNode astRoot = visitor.visit(parseTreeRoot);
+
+        // طباعة الشجرة الكاملة
+        System.out.println("=== Python Abstract Syntax Tree ===");
+        astRoot.print(0);
+    }
+}
