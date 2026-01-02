@@ -118,35 +118,6 @@ ID
 
 /* ===================== NEWLINE + INDENT ===================== */
 
-/*NEWLINE
-  : ( '\r'? '\n' | '\r' | '\f' ) [ \t]*
-    {
-      String text = getText();
-      String newLine = text.replaceAll("[^\r\n\f]+", "");
-      String spaces  = text.replaceAll("[\r\n\f]+", "");
-
-      if (opened > 0) {
-        skip();
-      } else {
-        emit(commonToken(NEWLINE, newLine));
-
-        int indent = getIndentationCount(spaces);
-        int previous = indents.isEmpty() ? 0 : indents.peek();
-
-        if (indent > previous) {
-          indents.push(indent);
-          emit(commonToken(INDENT, spaces));
-        }
-        else {
-          while (!indents.isEmpty() && indents.peek() > indent) {
-            indents.pop();
-            emit(commonToken(DEDENT, ""));
-          }
-        }
-      }
-    }
-  ;*/
-
 
 NEWLINE
   : ( '\r'? '\n' | '\r' | '\f' ) [ \t]*
