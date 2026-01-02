@@ -14,6 +14,10 @@ public class TextNode extends ElementNode {
         return text;
     }
 
+    @Override
+    public String toString() {
+        return "TextNode \"" + text + "\" (line " + lineNumber + ")";
+    }
 
 
 }

@@ -10,5 +10,8 @@ public class FunctionCallNode extends ExpressionNode {
         this.functionName = functionName;
     }
 
-//
+    @Override
+    public String toString() {
+        return " FunctionCallNode ( " + functionName + ") (line " + lineNumber + ")";
+    }
 }

@@ -8,7 +8,10 @@ public class FunctionCallValueNode extends ValueNode {
         super("FunctionCallValue", lineNumber);
         this.functionName = functionName;
     }
-
+    @Override
+    public String toString() {
+        return " FunctionCallValueNode ( " + functionName + ") (line " + lineNumber + ")";
+    }
 
 }
 

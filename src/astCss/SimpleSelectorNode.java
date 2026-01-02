@@ -16,6 +16,10 @@ public abstract class SimpleSelectorNode extends SelectorNode {
         this.selectorType = selectorType;
         this.value = value;
     }
+    @Override
+    public String toString() {
+        return " SimpleSelectorNode ( " + selectorType + "):( "+ value + ") (line " + lineNumber + ")";
+    }
 
 }
 

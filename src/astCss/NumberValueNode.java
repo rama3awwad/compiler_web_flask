@@ -7,7 +7,10 @@ public class NumberValueNode extends ValueNode {
         super("NumberValue", lineNumber);
         this.value = value;
     }
-
+    @Override
+    public String toString() {
+        return " NumberValueNode ( " + value + ") (line " + lineNumber + ")";
+    }
 
 }
 

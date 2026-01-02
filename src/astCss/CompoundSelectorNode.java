@@ -7,6 +7,10 @@ public class CompoundSelectorNode extends SelectorNode {
     }
 
 
+    @Override
+    public String toString() {
+        return " CompoundSelectorNode  (line " + lineNumber + ")";
+    }
 
 
 }

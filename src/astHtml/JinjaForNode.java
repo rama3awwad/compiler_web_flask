@@ -10,5 +10,8 @@ public class JinjaForNode extends JinjaNode {
         this.loopVar = loopVar;
     }
 
-//
+    @Override
+    public String toString() {
+        return "JinjaForNode " + loopVar + " (line " + lineNumber + ")";
+    }
 }

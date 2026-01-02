@@ -8,6 +8,10 @@ public abstract class DeclarationNode extends AstNode {
         super("Declaration", lineNumber);
         this.propertyName = propertyName;
     }
+    @Override
+    public String toString() {
+        return " DeclarationNode ( " + propertyName + ") (line " + lineNumber + ")";
+    }
 
 
 }

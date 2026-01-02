@@ -10,5 +10,9 @@ public class AttributeTextNode extends AstNode {
         this.text = text;
     }
 
+    @Override
+    public String toString() {
+        return " AttributeTextNode ( " + text + ") (line " + lineNumber + ")";
+    }
 }
 

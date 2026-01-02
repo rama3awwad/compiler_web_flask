@@ -7,5 +7,10 @@ public class CombinatorNode extends SelectorNode {
         super("Combinator", lineNumber);
         this.combinator = combinator;
     }
+    @Override
+    public String toString() {
+        return " CombinatorNode ( " + combinator + ") (line " + lineNumber + ")";
+    }
+
 }
 

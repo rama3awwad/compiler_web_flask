@@ -6,5 +6,10 @@ public class EffectDeclarationNode extends DeclarationNode {
         super(propertyName, lineNumber);
     }
 
+    @Override
+    public String toString() {
+        return " EffectDeclarationNode  (line " + lineNumber + ")";
+    }
+
 }
 

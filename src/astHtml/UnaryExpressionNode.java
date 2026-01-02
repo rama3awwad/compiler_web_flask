@@ -10,5 +10,8 @@ public class UnaryExpressionNode extends ExpressionNode {
         this.operator = operator;
     }
 
-
+    @Override
+    public String toString() {
+        return "UnaryExpressionNode (" + operator + ") (line " + lineNumber + ")";
+    }
 }

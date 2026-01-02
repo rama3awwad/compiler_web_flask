@@ -9,7 +9,10 @@ public class TypeSelectorNode extends SelectorNode {
         super("TypeSelector", lineNumber);
         this.tagName = tagName;
     }
-
+    @Override
+    public String toString() {
+        return " TypeSelectorNode ( " + tagName + ") (line " + lineNumber + ")";
+    }
 
 }
 

@@ -5,5 +5,9 @@ public abstract class ValueNode extends AstNode {
     public ValueNode(String name, int lineNumber) {
         super(name, lineNumber);
     }
+    @Override
+    public String toString() {
+        return " ValueNode  (line " + lineNumber + ")";
+    }
 }
 

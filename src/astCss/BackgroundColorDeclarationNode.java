@@ -6,5 +6,10 @@ public class BackgroundColorDeclarationNode extends DeclarationNode {
         super(propertyName, lineNumber);
     }
 
+    @Override
+    public String toString() {
+        return " BackgroundColorDeclarationNode  (line " + lineNumber + ")";
+    }
+
 }
 

@@ -8,7 +8,10 @@ public class KeywordValueNode extends ValueNode {
         super("KeywordValue", lineNumber);
         this.keyword = keyword;
     }
-
+    @Override
+    public String toString() {
+        return " KeywordValueNode ( " + keyword + ") (line " + lineNumber + ")";
+    }
 
 }
 

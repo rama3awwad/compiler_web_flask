@@ -6,7 +6,10 @@ public class RuleNode extends AstNode {
         super("Rule", lineNumber);
     }
 
-
+    @Override
+    public String toString() {
+        return " RuleNode  (line " + lineNumber + ")";
+    }
 
 }
 

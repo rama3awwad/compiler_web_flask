@@ -9,6 +9,11 @@ public class IdentifierNode extends ExpressionNode {
         super("Identifier", lineNumber);
         this.name = name;
     }
+    @Override
+    public String toString() {
+        return "IdentifierNode (" + name + ") (line " + lineNumber + ")";
+    }
+
 
 }
 

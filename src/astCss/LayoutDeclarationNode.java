@@ -5,6 +5,9 @@ public class LayoutDeclarationNode extends DeclarationNode {
     public LayoutDeclarationNode( String propertyName,  int lineNumber) {
         super(propertyName, lineNumber);
     }
-
+    @Override
+    public String toString() {
+        return " LayoutDeclarationNode  (line " + lineNumber + ")";
+    }
 }
 

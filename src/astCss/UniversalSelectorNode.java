@@ -9,4 +9,8 @@ public class UniversalSelectorNode extends SimpleSelectorNode {
                 lineNumber
         );
     }
+    @Override
+    public String toString() {
+        return " UniversalSelectorNode  (line " + lineNumber + ")";
+    }
 }

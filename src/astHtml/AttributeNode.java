@@ -13,5 +13,10 @@ public class AttributeNode extends AstNode {
     public String getName() {
         return name;
     }
+    @Override
+    public String toString() {
+        return " AttributeNode ( " + name + ") (line " + lineNumber + ")";
+    }
+
 
 }

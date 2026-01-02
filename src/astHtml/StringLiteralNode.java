@@ -9,5 +9,9 @@ public class StringLiteralNode extends ExpressionNode {
         super("StringLiteral", lineNumber);
         this.value = value;
     }
-//
+    @Override
+    public String toString() {
+        return "StringLiteralNode " + value + " (line " + lineNumber + ")";
+    }
+
 }

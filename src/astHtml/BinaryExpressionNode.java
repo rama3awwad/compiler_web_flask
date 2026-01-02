@@ -11,9 +11,10 @@ public class BinaryExpressionNode extends ExpressionNode {
         this.operator = operator;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return " BinaryExpressionNode ( " + operator + ") (line " + lineNumber + ")";
+    }
 }
 
 

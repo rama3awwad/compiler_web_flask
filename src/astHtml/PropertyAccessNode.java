@@ -7,5 +7,8 @@ public class PropertyAccessNode extends ExpressionNode {
         super("PropertyAccess", lineNumber);
     }
 
-//
+    @Override
+    public String toString() {
+        return "PropertyAccessNode (line " + lineNumber + ")";
+    }
 }

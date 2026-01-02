@@ -14,6 +14,8 @@ public class HtmlElementNode extends ElementNode {
         return tagName;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "HtmlElementNode (" + tagName + ") (line " + lineNumber + ")";
+    }
 }

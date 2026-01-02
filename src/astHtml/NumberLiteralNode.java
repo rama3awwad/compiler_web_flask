@@ -11,5 +11,8 @@ public class NumberLiteralNode extends ExpressionNode {
         this.value = value;
     }
 
-//
+    @Override
+    public String toString() {
+        return "NumberLiteralNode (" + value + ") (line " + lineNumber + ")";
+    }
 }

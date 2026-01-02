@@ -9,5 +9,8 @@ public class ColorValueNode extends ValueNode {
         this.type = type;
         this.value = value;
     }
-
+    @Override
+    public String toString() {
+        return " ColorValueNode ( " + type + ")  : ( "+ value+")  (line " + lineNumber + ")";
+    }
 }

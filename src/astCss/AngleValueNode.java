@@ -9,7 +9,10 @@ public class AngleValueNode extends ValueNode {
         this.value = value;
     }
 
-
+    @Override
+    public String toString() {
+        return " AngleValueNode ( " + value + ") (line " + lineNumber + ")";
+    }
 
 }
 

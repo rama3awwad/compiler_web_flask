@@ -14,4 +14,8 @@ public class VoidHtmlElementNode extends ElementNode {
         return tagName;
     }
 
+    @Override
+    public String toString() {
+        return "VoidHtmlElementNode (" + tagName + ") (line " + lineNumber + ")";
+    }
 }

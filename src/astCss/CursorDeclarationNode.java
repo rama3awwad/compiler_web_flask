@@ -6,5 +6,10 @@ public class CursorDeclarationNode extends DeclarationNode {
         super(propertyName, lineNumber);
     }
 
+    @Override
+    public String toString() {
+        return " CursorDeclarationNode  (line " + lineNumber + ")";
+    }
+
 }
 

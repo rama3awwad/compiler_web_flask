@@ -7,6 +7,9 @@ public class IdentValueNode extends ValueNode {
         super("IdentValue", lineNumber);
         this.ident = ident;
     }
-
+    @Override
+    public String toString() {
+        return " IdentValueNode ( " + ident + ") (line " + lineNumber + ")";
+    }
 
 }

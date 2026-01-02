@@ -9,6 +9,9 @@ public class PseudoSelectorNode extends SelectorNode {
         super("PseudoSelector", lineNumber);
         this.pseudoName = pseudoName;
     }
-
+    @Override
+    public String toString() {
+        return " PseudoSelectorNode ( " + pseudoName + ") (line " + lineNumber + ")";
+    }
 }
 

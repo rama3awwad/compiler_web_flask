@@ -6,5 +6,10 @@ public class ComplexSelectorNode extends SelectorNode {
         super("ComplexSelector", lineNumber);
     }
 
+    @Override
+    public String toString() {
+        return " ComplexSelectorNode  (line " + lineNumber + ")";
+    }
+
 }
 

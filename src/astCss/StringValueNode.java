@@ -10,6 +10,9 @@ public class StringValueNode extends ValueNode {
     }
 
 
-
+    @Override
+    public String toString() {
+        return " StringValueNode ( " + value + ") (line " + lineNumber + ")";
+    }
 }
 

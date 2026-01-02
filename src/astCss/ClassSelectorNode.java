@@ -10,6 +10,9 @@ public class ClassSelectorNode extends SelectorNode {
         this.className = className;
     }
 
-
+    @Override
+    public String toString() {
+        return " ClassSelectorNode ( " + className + ") (line " + lineNumber + ")";
+    }
 
 }
