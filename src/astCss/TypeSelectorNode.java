@@ -9,6 +9,11 @@ public class TypeSelectorNode extends SelectorNode {
         super("TypeSelector", lineNumber);
         this.tagName = tagName;
     }
+
+    public String getTagName() {
+        return tagName;
+    }
+
     @Override
     public String toString() {
         return " TypeSelectorNode ( " + tagName + ") (line " + lineNumber + ")";

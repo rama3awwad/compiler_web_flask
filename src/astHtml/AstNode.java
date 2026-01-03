@@ -9,6 +9,11 @@ public abstract class AstNode {
         this.nodeName = nodeName;
         this.lineNumber = lineNumber;
     }
+
+    public int getLineNumber() {
+        return lineNumber;
+    }
+
     public void addChild(AstNode child) {
         if (child != null) children.add(child);
     }

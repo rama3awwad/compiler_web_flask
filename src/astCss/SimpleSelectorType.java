@@ -5,7 +5,8 @@ public enum SimpleSelectorType {
     UNIVERSAL,
     TYPE,
     CLASS,
-    PSEUDO
+    PSEUDO,
+    ID
 
 
 }

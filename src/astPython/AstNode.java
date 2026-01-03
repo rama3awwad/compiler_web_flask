@@ -1,6 +1,8 @@
-package astCss;
+package astPython;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public abstract class AstNode {
     protected String nodeName;
     protected int lineNumber;
@@ -22,22 +24,21 @@ public abstract class AstNode {
     public List<AstNode> getChildren() {
         return children;
     }
-    public String getNodeName() {
-        return getClass().getSimpleName();
-    }
 
-public void print(int indent) {
-    printIndent(indent);
-    System.out.println(toString());
-    for (astCss.AstNode child : children) {
-        child.print(indent + 1);
+    public void print(int indent) {
+        printIndent(indent);
+        System.out.println(toString());
+        for (AstNode child : children) {
+            child.print(indent + 2);
+        }
     }
-}
-
 
     protected void printIndent(int indent) {
         for (int i = 0; i < indent; i++) {
             System.out.print("  ");
         }
     }
+
+    @Override
+    public abstract String toString();
 }
